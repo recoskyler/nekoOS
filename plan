@@ -1,0 +1,108 @@
+nekOS 1.0
+by recoskyler
+____________________________________________________________________________________________________________
+
+--------
+Features
+________
+
+- Proper File System
+- Error-protection
+- Color or B&W
+- Themes/Custom Palette
+- Auto-resize terminal (Pocket Compatible)
+- BIOS Multi-OS Support
+- Auto-Rename File With Same Name, Or Old Version (abc(1).txt , abc.conf.old.old)
+- Multiple User Accounts (Admin and Local)
+- Remote Connection (File Transfer, File Editing)
+- Device Manager
+- Multi-monitor Support
+- Virtual Desktops
+- Windows
+    - Multiple
+    - Movable
+    - Resizable
+    - Minimizable
+    - Maximizable
+- Native Apps
+    - File Manager
+    - Browser (Client and Server)
+    - Contacts
+    - Email (Client and Server)
+    - Word Editor (Colorful, supports images, word-wrap, printing)
+    - Turtle Remote
+    - Messaging (Direct and Wireless)
+    - Redstone Remote (Direct and Wireless)
+    - IDE
+    - RedNet
+    - Clock
+    - GPS
+    - Store
+    - Music Player (With Little Animation)
+    - Drawing/CAD
+        - Shapes (Line, Rectangle, Circle)
+        - Layers
+        - Printing
+        - 3D Printing
+- Games
+    - Tic-Tac-Toe
+    - Snake
+    - Redirection
+- Auto-updates
+- ACL
+- Encryption
+- Auto-back-up
+______________________________________________________________________________________________________________
+| [i]                                                                                                        |
+| Server, encryption, ACL, device manager and multiple user account settings are enabled only for the admin. |
+|____________________________________________________________________________________________________________|
+
+-----------
+File-system
+___________
+
+root
+  |
+  +-- sys: system files
+  |
+  +-- usr: user directories
+  |     |
+  |     +-- admin
+  |     |     |
+  |     |     +-- Desktop
+  |     |     |
+  |     |     +-- Documents
+  |     |     |
+  |     |     +-- Pictures
+  |     |     |
+  |     |     +-- Downloads
+  |     |     |
+  |     |     +-- Projects
+  |     |           |
+  |     |           +-- nekoCAD
+  |     |           |
+  |     |           +-- nekoIDE
+  |     |
+  |     +-- local1
+  |           |
+  |           +-- Desktop
+  |           |
+  |           +-- Documents
+  |           |
+  |           +-- Pictures
+  |           |
+  |           +-- Downloads
+  |           |
+  |           +-- Projects
+  |                 |
+  |                 +-- nekoCAD
+  |                 |
+  |                 +-- nekoIDE
+  |
+  +-- app: apps
+  |
+  +-- etc: configuration files and settings
+  |
+  +-- dev: devices
+  |
+  +-- var: temporary files
