@@ -38,3 +38,13 @@
 --         dragging = false
 --     end
 -- end
+
+function drawBox(xs, ys, w, h, c)
+    for x = xs, xs + w do
+        for y = ys, ys + h do
+            term.setBackgroundColor(c)
+            term.setCursorPos(x, y)
+            term.write(" ")
+        end
+    end
+end

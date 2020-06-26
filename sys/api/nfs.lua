@@ -1,14 +1,17 @@
--- nfs - nekoFS API
+-- nfs - nekoFS - neko File System API
 -- by recoskyler
 -- 2020
 
-function write(p, c, protect)
+apiListFile = "/sys/api/api-list.json"
+
+function writeFile(p, c, protect)
     local path = p or ""
     local content = c or ""
 
     if path == "" then return false end
 
     path = removeTailSlash(path)
+    path = decreaseDots(path)
 
     if fs.exists(path) and protect then
         newPath = fs.getName(path) .. ".(" .. os.day() .. "-" .. os.time() .. ")"
@@ -33,13 +36,14 @@ function write(p, c, protect)
     file.close()
 end
 
-function append(p, c, protect)
+function appendFile(p, c, protect)
     local path = p or ""
     local content = c or ""
 
     if path == "" then return false end
 
     path = removeTailSlash(path)
+    path = decreaseDots(path)
 
     if fs.exists(path) and protect then
         newPath = fs.getName(path) .. ".(" .. os.day() .. "-" .. os.time() .. ")"
@@ -134,6 +138,14 @@ function listPaths(p, recursive, files, folders, full, res)
     return res
 end
 
+function decreaseDots(path)
+    while path.sub(1, 1) == "." do
+        path = path.sub(2)
+    end
+
+    return "." .. path
+end
+
 function removeTailSlash(p)
     p = p or ""
 
@@ -144,4 +156,41 @@ function removeTailSlash(p)
     end
 
     return p
+end
+
+function hide(path)
+    if fs.exists(path) and fs.getName(path).sub(1, 1) ~= "." then
+        fs.move(path, "." .. path)
+    end
+end
+
+function show(path)
+    if fs.exists(path) and fs.getName(path).sub(1, 1) == "." then
+        fs.move(path, path.sub(2))
+    end
+end
+
+function listAPI()
+    return textutils.unserialize(nfs.readAll(apiListFile))
+end
+
+function loadAPI()
+    apiList = listAPI()
+    for i, api in ipairs(apiList) do os.loadAPI(api) end
+end
+
+function addAPI(api)
+    local apiList = listAPI() or {}
+    local found = false
+
+    api = decreaseDots(removeTailSlash(api))
+
+    for i, a in ipairs(listAPI()) do 
+        if removeTailSlash(a) == api then found = true end
+    end
+
+    if not found then
+        apiList[#apiList + 1] = api
+        writeFile(apiListFile, textutils.serializeJSON(apiList), false)
+    end
 end

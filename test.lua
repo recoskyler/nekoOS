@@ -1,5 +1,5 @@
 os.loadAPI("/sys/api/nfs.lua")
 
-nfs.write("/a.ab", "sd", true)
+nfs.loadAPI()
 
-print(nfs.getUsedSpacePercentage("/"))
+nfs.addAPI("/sys/api/com.lua")
