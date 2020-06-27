@@ -8,7 +8,7 @@ An interactive, powerful, customizable, multi-functional, multi-platform operati
 ## Install
 
 *Coming soon...*
-*Will the installer to pastebin.*
+*Will upload the installer to pastebin.*
 
 ## Uninstall
 
