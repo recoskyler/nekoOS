@@ -2,7 +2,7 @@
 -- by recoskyler
 -- 2020
 
-apiListFile = "/sys/api/api-list.json"
+local apiListFile = "/sys/api/api-list.json"
 
 function writeFile(p, c, protect)
     local path = p or ""
@@ -191,6 +191,19 @@ function addAPI(api)
 
     if not found then
         apiList[#apiList + 1] = api
-        writeFile(apiListFile, textutils.serializeJSON(apiList), false)
+        writeFile(apiListFile, textutils.serialize(apiList), false)
     end
+end
+
+function removeAPI(api)
+    local apiList = listAPI() or {}
+    local newList = {}
+
+    api = decreaseDots(removeTailSlash(api))
+
+    for i, a in ipairs(listAPI()) do 
+        if removeTailSlash(a) ~= api then newList[#newList + 1] = removeTailSlash(a) end
+    end
+
+    writeFile(apiListFile, textutils.serialize(newList), false)
 end

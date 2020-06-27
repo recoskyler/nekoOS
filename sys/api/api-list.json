@@ -1,1 +1,9 @@
-["/sys/api/acl.lua","/sys/api/crypto.lua","/sys/api/gui.lua","/sys/api/module.lua","/sys/api/nfs.lua","/sys/api/user.lua","./sys/api/com.lua"]
+{
+  "/sys/api/acl.lua",
+  "/sys/api/crypto.lua",
+  "/sys/api/gui.lua",
+  "/sys/api/module.lua",
+  "/sys/api/nfs.lua",
+  "/sys/api/user.lua",
+  "./sys/api/com.lua",
+}
