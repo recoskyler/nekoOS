@@ -1,6 +1,18 @@
 # nekoOS
 
+**!!! WARNING !!!**
+**THIS PROJECT IS NOT COMPLETE YET**
+
 An interactive, powerful, customizable, multi-functional, multi-platform operating system for ComputerCraft 1.79
+
+## Install
+
+*Coming soon...*
+*Will the installer to pastebin.*
+
+## Uninstall
+
+*You will be able to uninstall the OS from the settings easily.*
 
 ## Features
 
